@@ -18,3 +18,11 @@ export const Title = styled.h1`
   ${TEXT.H1};
   color: var(${COLOR.MAIN});
 `;
+
+export const Annot = styled.div`
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+  background-color: var(${COLOR.INFO});
+`;

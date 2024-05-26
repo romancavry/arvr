@@ -1,28 +1,30 @@
 import * as React from 'react';
 
-import { Title, Wrap } from './styled';
+import {
+  Annot as AnnotType,
+  getDataNormal,
+  getDataPosition,
+} from 'modules/viewer';
+
+import { Annot, Title, Wrap } from './styled';
 import model from './model.glb';
 
 const Home = () => {
   const modelRef = React.useRef();
-  const [annots, setAnnots] = React.useState([]);
+  const [annots, setAnnots] = React.useState<AnnotType[]>([]);
 
-  const handleClick = event => {
+  const handleClick = (event: React.MouseEvent) => {
     const { clientX, clientY } = event;
 
     if (modelRef.current) {
+      // @ts-ignore
       const hit = modelRef.current.positionAndNormalFromPoint(clientX, clientY);
+
       if (hit) {
         setAnnots(annots => [...annots, hit]);
       }
     }
   };
-
-  const getDataPosition = annot =>
-    `${annot.position.x} ${annot.position.y} ${annot.position.z}`;
-
-  const getDataNormal = annot =>
-    `${annot.normal.x} ${annot.normal.y} ${annot.normal.z}`;
 
   return (
     <Wrap>
@@ -37,19 +39,19 @@ const Home = () => {
         ar-scale='auto'
         camera-controls
         onClick={handleClick}
+        style={{
+          width: '500px',
+          height: '500px',
+        }}
         ref={modelRef}
       >
         {annots.map((annot, idx) => (
-          <button
+          <Annot
             key={idx}
-            className='view-button'
             slot={`hotspot-${idx}`}
-            type='button'
             data-position={getDataPosition(annot)}
             data-normal={getDataNormal(annot)}
-          >
-            {idx}
-          </button>
+          />
         ))}
         {/* @ts-ignore */}
       </model-viewer>
