@@ -1,4 +1,9 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
+
+import routes from 'core/routes/routes';
+
+import { Button } from 'uikit/atoms';
 
 import {
   Annot as AnnotType,
@@ -55,6 +60,10 @@ const Home = () => {
         ))}
         {/* @ts-ignore */}
       </model-viewer>
+
+      <Link to={routes.shoe}>
+        <Button>Shoe</Button>
+      </Link>
     </Wrap>
   );
 };

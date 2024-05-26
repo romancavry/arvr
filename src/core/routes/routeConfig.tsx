@@ -11,6 +11,7 @@ import Errors from 'screens/Errors/Errors';
 import Home from 'screens/Home';
 import My from 'screens/My';
 import Logout from 'screens/Logout';
+import Shoe from 'screens/Shoe';
 
 import { AuthorizedOnly, loadAuth, UnauthorizedOnly } from 'utils/auth';
 
@@ -20,6 +21,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<Core />} errorElement={<Errors />} loader={loadAuth}>
       <Route path={routes.home} {...Home} />
+      <Route path={routes.shoe} {...Shoe} />
 
       <Route Component={UnauthorizedOnly}>
         <Route path={routes.auth} {...Auth} />
