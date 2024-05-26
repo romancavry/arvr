@@ -1,0 +1,8 @@
+# dependencies
+/node_modules
+
+.cache-loader
+
+dist
+!.storybook
+gitlab-ci.yml

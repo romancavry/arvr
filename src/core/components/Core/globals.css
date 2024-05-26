@@ -1,0 +1,50 @@
+@import url('./vendor/toastify.css');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  box-shadow: none;
+}
+
+*:focus {
+  outline: none;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+
+  /* COLOR.BG */
+  background: #F8F9FA;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &.modal_opened {
+    overflow: hidden;
+  }
+}
+
+body,
+button,
+input {
+  /* TEXT.MAIN */
+  font-family: Open Sans;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  /* COLOR.MAIN */
+  color: #2E2A36;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
